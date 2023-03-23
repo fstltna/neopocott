@@ -1,0 +1,205 @@
+NeoPocott/SDL 0.38b R2 Readme
+-----------------------------
+
+Author information  : Niels Wagenaar <niels.wagenaar@wolmail.nl>
+                      Caz            <turok2@canterburn.com>
+
+Website             : http://neopocott.retrofaction.com
+
+Interesting links   : http://www.libsdl.org, http://neopocott.emuunlim.com,
+                      http://www.pdroms.com.
+
+- About NeoPocott/SDL:
+----------------------
+
+NeoPocott/SDL is a freeware software emulator which emulates the NEO*GEO Pocket
+(Colour) handheld device from SNK. This emulator allows you to play freeware/
+public domain/commercial games using ROM images. NeoPocott/SDL is based upon 
+Julien "Gollum" Frelat's WIN32 version of NeoPocott. and uses the Simple 
+Directmedia Layer library for graphics and keyboard/joystick support. With the 
+current version sound is not supported!
+
+More information about the Simple Directmedia Layer library can be found on the
+official SDL website : http://www.libsdl.org.
+
+First a simple acknowledgement, this emulator is closed source and won't be 
+Open Source untill the NeoPocott developer group has agreed on this. However,
+a partial OpenSource release is in the planning. Please, don't bug me with
+questions when and how since the idea has not been crystialized yet!
+
+- Standard DISCLAIMER:
+----------------------
+
+The use of this emulator is entirely at your own risk! We or the NeoPocott dev.
+group can't be held responsible for damage to soft- and/or hardware done by this
+software. This emulator probably has some bugs and *could* there for,damage your
+soft- and/or hardware (this is however likely to happen so don't be alarmed).
+
+This emulator makes use of cartridge-dumps which are called ROM images or ROM
+dumps. The use of commercial software is prohibited under the agreemant that you
+own the cartridge yourself. If you don't own the game yourself, then you're
+violating copyright laws which is illegal and could be produced in legal action
+to the use or even to us. So please don't use ROM's which you don't own.
+
+We will not reply on e-mail messages with the following similar contents :
+
+"Where can I download ROM's?"
+"Why doesn't game xxx run?"
+"When will there be a new version out?"
+
+The development of this emulator is an ongoing procedure which (could) result in
+better comtability and/or new versions. So please be patient. Don't expect a
+100% comtability rate with this release.
+
+- What's new in NeoPocott/SDL 0.38b R2.1 :
+------------------------------------------
+
+After 3 weeks of releasing the 0.38b R2 version there's now a 2.1 version
+available which fixes some stuff as well as a new implented gfx core :
+
+- Fixed hanging in savestate loading/save;
+- Implented 2nd gfx core (faster);
+
+Not much has changed but a new switch has been implented (-core) which allows
+you to select the 1st (default but slightly enhanced) or the 2nd (experimental
+but faster) core. The 2nd core is faster and based upon in-SDL functions but
+could stop working with a new SDL release. Also the hanging in the savestate
+loading has been fixed as well :)
+
+
+- What's new in NeoPocott/SDL 0.38b R2 :
+----------------------------------------
+
+*PHEW* It was a long time (about 6 months) when I released the latest version
+of NeoPocott/SDL (version 0.3-final to be precise). This release is what the
+0.4 release was going to be with some additions. First, the version name is now
+the same as the official WIN32 version (0.38b) but because it's a 2nd release
+I named it 0.38b R2. Here's a complete list of what's implented :
+
+- Redone scaling/scanline routines;
+- Redone keyboard/joystick handling;
+- Implented FPS counter;
+- Implented multiple snapshot loading/saving;
+- Implented multiple screenshot saving;
+- Implented new scanline option for proper scanline mode;
+- Implented in-emulator B&W/Colour selection;
+- Implented/Fixed scaling output;
+- Implented country select switch;
+- Implented disable/enable gfx layers selection;
+- Fixed sticky keyboard bug(s);
+- Fixed joystick handling;
+- Fixed fullscreen output;
+
+A lot has been fixed/implented and this makes it a complete up-to-date release.
+It has all the options that the official WIN32 version has :)
+
+- Using NeoPocott/SDL:
+----------------------
+
+Before starting up this emulator please make sure of the following :
+
+- Make sure you use the latest SDL library. SDL 1.2.2 was used for development.
+  See http://www.libsdl.org for the correct downloads.
+
+- Your Operating System must have a decent videocard which allows you to run in
+  16bpp mode and with decent CPU performance.
+
+  Development was done on a P2/350 running Linux/BeOS/WIN2K with a TNT2 Model64
+  videocard. The emulator runs on about 100% NGPC speed with commercial roms. So
+  this should be considered as the mimimum specs for running NeoPocott/SDL.
+
+The use of this emulator is commandline based which means that you *MUST* use
+a commanline prompt like the MS-DOS Prompt in Win9x/2K/NT/XP, Terminal in BeOS
+or a X-Term under Linux/FreeBSD/Solaris/etc. To see what switches are used, 
+simply type the following on the commandline :
+
+./neopocott -h (LINUX/BEOS/FREEBSD/ETC) 
+neopocott -h   (WIN9X/ME/2K/NT/XP)
+
+This will result in the following output :
+
+Usage: ./neopocott romfile options
+ Where options are:
+
+ -speed 0 - 7      : Setting speed, 5 is default.
+ -vsync true, false: Enable (true)/Disable (false) vsync at a speed
+                     cost/increase.Default is true (on).
+ -frameskip 1 - 10 : Options to skip some frames. Default is 3.
+ -scale 1 - 4      : Windows sizing with scanline support.
+ -scanline 1,2     : Enable scanline output. Only used with sizes >= 2.
+                     1 is the 'old' scanline output on x and y. The 2nd does
+                     a scanline on only the y-as.
+ -fullscreen       : Enabling fullscreenmode (overrides size!).
+ -core 1 - 2       : Selects the 1st gfx core (default) or the 2nd core which
+                     is experimental. The 2nd core only allows scanline in y-ax.
+ -fps              : Enable FPS counter. Default off.
+ -country 1,2      : 1 = Enable NGP(C) International mode. 2 = Japanese.
+                     Default is International (English) mode.
+ -joystick         : Enable SDL joystick support. (Default not enabled)
+
+I think that the use of the switches are self-explained and they don't need
+any explanation. BTW, a ROM file can be a NGP rom in any format (.ngp/bin/etc)
+and even in GZIP or ZIP compressed format. Do make sure that the ROM is packed
+only (so no file_id.diz, etc).
+
+This leaves us the (fixed!) keyboard layout which eplaines the in-emulator use
+of the NeoPocott/SDL emulator :
+
+-----------------------
+  NGP Key definations
+-----------------------
+NGP Left   :  LEFT  key / Joystick Left
+NGP Right  :  RIGHT key / Joystick Right
+NGP Up     :  UP    key / Joystick Up
+NGP Down   :  DOWN  key / Joystick Down
+NGP Option :  TAB   key / Joystick button 3
+NGP A      :  Z     key / Joystick button 1
+NGP B      :  X     key / Joystick button 2
+NGP ON/OFF :  ESC   key
+
+-----------------------
+  Extra emul. options
+-----------------------
+Pause                :  F1
+Continue             :  F2
+FPS enable           :  F3
+FPS disable          :  F4
+Frameskip increase   :  F5
+Frameskip decrease   :  F6
+Save snapshot        :  F7  (Is based upon savebank selection)
+Load snapshot        :  F8  (Is based upon savebank selection)
+Screenshot           :  F9  (Max of 10 per ROM)
+NGP reset            :  F10
+B&W/Colour           :  F12 (Switches between B&W and Colour output)
+Savebank select 1    :  1   (Selects savebank 1)
+Savebank select 2    :  2   (Selects savebank 2)
+Savebank select 3    :  3   (Selects savebank 3)
+Savebank select 4    :  4   (Selects savebank 4)
+Dis/Enab Frontlayer  :  5   (Disable/Enable Frontlayer)
+Dis/Enab Backlayer   :  6   (Disable/Enable Backlayer)
+Dis/Enab Spritelayer :  7   (Disable/Enable Spritelayer)
+
+Screenshot saving has kan now be done 10 times per ROM file. The file is saved
+with the following context :
+
+         romfilename.extension_[screenshotnumer].bmp
+
+Multiple snapshot saving loading can be done by selecting the savebank by using
+keys 1 through 4. With loading/saving the snapshot the following file context is
+used :
+
+        romfilename.extension.SA[savebanknumber]
+
+Keep in mind that snapshot saving/loading is in a beta stage. Sometimes it works
+and sometimes it won't. Especially commercial games seems to be a problem.
+
+- Credit's and stuff:
+---------------------
+
+Akawaka for Linux testing and some idea's
+Zakk for Linux testing and webspace for official website
+Joshua for Linux testing and for nagging my head of :)
+Jeffro for BeOS testing!
+Julien "Gollum" Frelat for giving me pointers and the source :)
+Caz for making the BeOS Build of for helping me with some problems.
+
